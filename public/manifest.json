@@ -1,0 +1,22 @@
+{
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/home",
+  "name": "Pintara Lite Reader",
+  "short_name": "Pintara Lite",
+  "description": "Aplikasi pembaca flipbook sederhana",
+  "icons": [
+    {
+      "src": "/icons/i1.jpg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/i2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

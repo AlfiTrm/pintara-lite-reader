@@ -1,0 +1,22 @@
+[
+ {
+ "id": "1",
+ "title": "Petualangan Kiko",
+ "pages": [
+ {"page":1,"image":"../pages/b1p1.jpg"},
+ {"page":2,"image":"../pages/b1p2.jpeg"},
+ {"page":3,"image":"../pages/b1p3.jpg"},
+ {"page":4,"image":"../pages/b1p4.jpeg"}
+ ]
+ },
+  {
+ "id": "2",
+ "title": "Indonesia Lebih Baik",
+ "pages": [
+ {"page":1,"image":"../pages/b2p1.png"},
+ {"page":2,"image":"../pages/b2p2.jpeg"},
+ {"page":3,"image":"../pages/b2p3.png"},
+ {"page":4,"image":"../pages/b2p4.png"}
+ ]
+ }
+]
