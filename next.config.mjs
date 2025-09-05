@@ -3,11 +3,16 @@ import withPWAInit from "next-pwa";
 const withPWA = withPWAInit({
   dest: "public",
   disable: process.env.NODE_ENV === 'development',
+  dynamicStartUrl: false,
+
 });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    optimizeCss: false, 
+  },
 };
 
 export default withPWA(nextConfig);
