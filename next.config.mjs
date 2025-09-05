@@ -21,6 +21,10 @@ const withPWA = withPWAInit({
       },
     },
   ],
+  
+  workboxOptions: {
+    exclude: [/_next\/dynamic-css-manifest\.json/],
+  },
 });
 
 /** @type {import('next').NextConfig} */
