@@ -7,7 +7,7 @@ const BookView = ({ book, currentPage, handleNextPage, handlePrevPage, imageErro
     const activePage = book.pages.find(p => p.page === currentPage);
 
     return (
-        <main className="flex flex-col items-center gap-4 w-screen md:w-4/12">
+        <main className="flex flex-col items-center gap-4 w-screen md:w-11/12">
             {imageError ? (
                 <div className="bg-red-50 p-4 w-screen h-[60vh] place-content-center rounded-lg text-center shadow">
                     <h2 className="font-semibold text-red-700">Halaman belum diunduh.</h2>
@@ -29,7 +29,7 @@ const BookView = ({ book, currentPage, handleNextPage, handlePrevPage, imageErro
             <button
                 onClick={handlePrevPage}
                 disabled={currentPage === 1}
-                className="absolute left-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-purple-1 text-white hover:bg-purple-2 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-all"
+                className="absolute left-2 md:left-2/7 top-1/2 p-3 rounded-full bg-purple-1 text-white hover:bg-purple-2 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-all"
             >
                 <ArrowLeftIcon className="w-5 h-5" />
             </button>
@@ -37,7 +37,7 @@ const BookView = ({ book, currentPage, handleNextPage, handlePrevPage, imageErro
             <button
                 onClick={handleNextPage}
                 disabled={currentPage === book.pages.length}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-purple-1 text-white hover:bg-purple-2 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-all"
+                className="absolute right-2 md:right-2/7 top-1/2 p-3 rounded-full bg-purple-1 text-white hover:bg-purple-2 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-all"
             >
                 <ArrowRightIcon className="w-5 h-5" />
             </button>
