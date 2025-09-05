@@ -1,5 +1,6 @@
 import React from 'react'
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
+import Image from 'next/image';
 
 
 const BookView = ({ book, currentPage, handleNextPage, handlePrevPage, imageError, setImageError }) => {
@@ -14,7 +15,7 @@ const BookView = ({ book, currentPage, handleNextPage, handlePrevPage, imageErro
                 </div>
             ) : (
                 <div className="relative w-full max-w-3xl">
-                    <img
+                    <Image
                         src={activePage?.image}
                         alt={`Halaman ${currentPage} dari ${book.title}`}
                         className="shadow w-full sm:object-contain object-cover h-[70vh] rounded-xl"

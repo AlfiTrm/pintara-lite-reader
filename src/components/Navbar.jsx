@@ -14,7 +14,7 @@ const Navbar = () => {
                         </p>
                     </Link>
 
-                    <Link href="https://github.com/AlfiTrm/pintara-lite-reader" className="p-2  hover:bg-purple-900  transition-all rounded-full duration-300">
+                    <Link href="https://github.com/AlfiTrm/pintara-lite-reader" className="p-2  hover:bg-purple-2  transition-all rounded-full duration-300">
                         <Github />
                     </Link>
                 </div>
