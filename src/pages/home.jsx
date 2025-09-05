@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       <div className="max-w-5xl mx-auto py-12 px-4">
-        <header className="text-4xl md:text-6xl lg:text-8xl text-center font-black bg-gradient-to-r from-blue-800 to-purple-800 bg-clip-text text-transparent mt-4">
+        <header className="text-4xl md:text-6xl lg:text-8xl text-center font-black bg-gradient-to-r from-blue-1 to-purple-1 bg-clip-text text-transparent mt-4">
           <h1>
             KOLEKSI BUKU
           </h1>
@@ -44,9 +44,9 @@ export default function Home() {
                     {book.descriptions}
                   </p>
 
-                  <div className="mt-auto flex text-sm items-center gap-2 group text-purple-800 font-semibold group-hover: self-start">
+                  <div className="mt-auto flex text-sm items-center gap-2 group text-purple-1 font-semibold group-hover: self-start">
                     Baca Sekarang
-                    <span className="group-hover:visible invisible transition-all duration-300 text-white group-hover:text-purple-800"> <MoveRight /></span>
+                    <span className="group-hover:visible invisible transition-all duration-300 text-white group-hover:text-purple-1"> <MoveRight /></span>
                   </div>
                 </div>
 

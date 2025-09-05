@@ -24,7 +24,7 @@ const BookView = ({ book, currentPage, handleNextPage, handlePrevPage, imageErro
                     <button
                         onClick={handlePrevPage}
                         disabled={currentPage === 1}
-                        className="absolute left-1/20 top-1/2 -translate-y-1/2 p-3 rounded-full bg-purple-800 text-white hover:bg-purple-900 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-all"
+                        className="absolute left-1/20 top-1/2 -translate-y-1/2 p-3 rounded-full bg-purple-1 text-white hover:bg-purple-2 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-all"
                     >
                         <ArrowLeftIcon className="w-5 h-5" />
                     </button>
@@ -32,7 +32,7 @@ const BookView = ({ book, currentPage, handleNextPage, handlePrevPage, imageErro
                     <button
                         onClick={handleNextPage}
                         disabled={currentPage === book.pages.length}
-                        className="absolute right-1/20 top-1/2 -translate-y-1/2 p-3 rounded-full bg-purple-800 text-white hover:bg-purple-900 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-all"
+                        className="absolute right-1/20 top-1/2 -translate-y-1/2 p-3 rounded-full bg-purple-1 text-white hover:bg-purple-2 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-all"
                     >
                         <ArrowRightIcon className="w-5 h-5" />
                     </button>
@@ -40,7 +40,7 @@ const BookView = ({ book, currentPage, handleNextPage, handlePrevPage, imageErro
             )}
             <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
                 <div
-                    className="h-full bg-purple-800 transition-all duration-300"
+                    className="h-full bg-purple-1 transition-all duration-300"
                     style={{ width: `${(currentPage / book.pages.length) * 100}%` }}
                 />
             </div>
