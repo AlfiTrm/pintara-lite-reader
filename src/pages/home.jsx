@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { ArrowRight, MoveRight } from "lucide-react";
 
 export default function Home() {
   const [books, setBooks] = useState([])
@@ -15,28 +16,45 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-slate-50 overflow-hidden">
-      <main className="">
-        <h1 className="text-3xl text-center font-black bg-gradient-to-r from-blue-800 to-purple-600 bg-clip-text text-transparent drop-shadow-md mt-10">
-          KOLEKSI BUKU
-        </h1>
+    <div className="min-h-screen bg-slate-50">
+      <div className="max-w-5xl mx-auto py-12 px-4">
+        <header className="text-4xl md:text-6xl lg:text-8xl text-center font-black bg-gradient-to-r from-blue-800 to-purple-800 bg-clip-text text-transparent mt-4">
+          <h1>
+            KOLEKSI BUKU
+          </h1>
+        </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center mt-10 px-8">
+        <main className="grid grid-cols-2 gap-4 md:gap-8 mt-10">
           {books.map(book => (
-            <div key={book.id} className="text-center text-xl font-semibold  p-4 rounded-xl text-white ">
-              <Link href={`/book/${book.id}`}>
-                <div className="bg-white rounded-xl shadow-md hover:shadow-lg hover:scale-101 transition p-4 w-72 text-center">
-                  <img src={book.thumbnail}
+            <Link key={book.id} href={`/book/${book.id}`}>
+              <div className="group bg-white ring-1 ring-gray-200 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden">
+
+                <div className="overflow-hidden">
+                  <img
+                    src={book.thumbnail}
                     alt={book.title}
-                    className="rounded-md w-full h-auto transition-transform" />
-                  <h2 className="mt-3 font-semibold text-black">{book.title}</h2>
+                    className="w-full h-72 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
 
-              </Link>
-            </div>
+                <div className="p-5 flex flex-col flex-grow">
+                  <h2 className="text-lg font-bold text-gray-800 mb-2">{book.title}</h2>
+
+                  <p className="text-sm text-gray-500 flex-grow mb-4">
+                    {book.descriptions}
+                  </p>
+
+                  <div className="mt-auto flex text-sm items-center gap-2 group text-purple-800 font-semibold group-hover: self-start">
+                    Baca Sekarang
+                    <span className="group-hover:visible invisible transition-all duration-300 text-white group-hover:text-purple-800"> <MoveRight /></span>
+                  </div>
+                </div>
+
+              </div>
+            </Link>
           ))}
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   )
 }

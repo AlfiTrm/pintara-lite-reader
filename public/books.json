@@ -1,24 +1,26 @@
 [
  {
  "id": "1",
- "title": "The Adventure of Arthur",
+ "title": "Perjalanan Perintis",
  "thumbnail": "../pages/thumbnails/sb1.png",
+ "descriptions": "Petualangan menuju harapan baru.",
  "pages": [
- {"page":1,"image":"../pages/b1p1.png"},
- {"page":2,"image":"../pages/b1p2.png"},
- {"page":3,"image":"../pages/b1p3.png"},
- {"page":4,"image":"../pages/b1p4.png"}
- ]
- },
-  {
+     {"page":1,"image":"../pages/b1p1.png"},
+     {"page":2,"image":"../pages/b1p2.png"},
+     {"page":3,"image":"../pages/b1p3.png"},
+     {"page":4,"image":"../pages/b1p4.png"}
+    ]
+},
+{
  "id": "2",
  "title": "Indonesia Lebih Baik",
- "thumbnail": "../pages/thumbnails/sb1.png",
+ "thumbnail": "../pages/thumbnails/sb2.png",
+ "descriptions": "Seruan harapan untuk mengembalikkan kemerdekaan.",
  "pages": [
- {"page":1,"image":"../pages/b1p1.png"},
- {"page":2,"image":"../pages/b1p2.png"},
- {"page":3,"image":"../pages/b1p3.png"},
- {"page":4,"image":"../pages/b1p4.png"}
+ {"page":1,"image":"../pages/b2p1.png"},
+ {"page":2,"image":"../pages/b2p2.png"},
+ {"page":3,"image":"../pages/b2p3.png"},
+ {"page":4,"image":"../pages/b2p4.png"}
  ]
  }
 ]
