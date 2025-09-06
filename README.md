@@ -1,40 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Pintara Lite Reader (PWA)
 
-## Getting Started
+Projek ini adalah submission untuk Tes Kompetensi Web Developer Internship di PT Inspirasi Mandiri Nusantara. Proyek ini adalah versi 'Lite' dari aplikasi Pintara Flipbook Reader, dibangun sebagai Progressive Web App (PWA) dengan fokus pada fungsi offline.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### **Arsitektur Cache, Pengujian, dan Keterbatasan**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Berikut adalah penjelasan yang menjawab poin-poin dari tugas.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+#### **Arsitektur Cache**
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Website atau kita sebut saja aplikasi pada projek ini menggunakan arsitektur cache hybrid yang diimplementasikan melalui Service Worker manual untuk pengalaman offlinenya. Saat pertama kali di-install, aplikasi langsung menyimpan "kerangka" utamanya termasuk kode JavaScript, CSS, halaman penting, dan data **books.json** ke dalam *pre-cache* atau spesifiknya *pre-cache app shell*. *Pre-cache* ini membuat aplikasi bisa selalu siap (gak nge-blank) dan menampilkan konten halaman utama meski tanpa internet(bisa menampilkan fallback dan halaman yang sudah ter-simpan di cache). Kemudian, saat Anda menggunakan aplikasi, gambar-gambar halaman buku yang Anda buka akan disimpan secara **runtime** ke dalam *cache* atau kita sebut saja *Cache-First*, dimana ketika kita berada dimode *offline*, maka saat berpindah halaman, *service worker* akan mencari cache terlebih dahulu alih-alih aplikasi load untuk render halaman yang dicari. Strategi ini dipilih agar halaman yang sudah dibaca bisa dimuat secara instan dari cache saat ada *request* untuk akses kembali(baik online untuk mempercepat load maupun offline).
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+#### **Cara Uji Offline**
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1.  **Install Aplikasi:** Buka link di Chrome (Android) dan pilih **"Install App"** atau **"Tambahkan ke layar utama"**.
+2.  **Akses:** Buka aplikasi dari ikon di layar utama saat **online**. Kunjungi halaman utama, lalu masuk dan baca beberapa halaman dari salah satu buku.
+3.  **Mulai Offline:** Aktifkan **Mode Pesawat** pada perangkat.
+4.  **Tes Fungsi:**
 
-## Learn More
+   * Halaman *offline*: Jika sudah membuka home, memilih buku, dan 2/4 dari halaman buku, navigasi kembali ke halaman 1, 2, dan home. Halaman itu akan tetap tampil.
+   * Fallback : Navigasi ke halaman yang belum pernah di akses (misal:halaman 3), maka akan muncul pesan fallback.
+   * Buka Ulang: Pada mode **Pesawat**, tutup aplikasi dan bersihkan dari daftar aplikasi pada HP. Kemudian buka kembali aplikasi, maka akan tetap bisa membuka halaman yang sudah dimuat di cache. Hal ini membuktikan bahwa *pre-cache app shell* bekerja.
+        
+#### **Keterbatasan & Ide Perbaikan**
 
-To learn more about Next.js, take a look at the following resources:
+* **Keterbatasan:** Karena data dari file `books.json` dimasukkan ke dalam *pre-cache*, daftar buku tidak akan diperbarui secara otomatis jika ada perubahan di sisi server hingga versi Service Worker yang baru diaktifkan.
+* **Ide Perbaikan:** Mengimplementasikan fitur `prefetch` halaman buku berikutnya, sehingga pengalaman membalik halaman bisa lebih cepat.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+---
+Dibuat oleh **Muhammad Alfi Tsani Ramadhan**
