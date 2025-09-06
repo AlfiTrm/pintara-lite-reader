@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pintara-cache-v2';
+const CACHE_NAME = 'pintara-cache-v3';
 
 const PRECACHE_ASSETS = [
     '/',
@@ -37,19 +37,29 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-    if (event.request.mode === 'navigate') {
-        event.respondWith(
-            fetch(event.request).catch(() => caches.match('/_offline'))
-        );
-        return;
-    }
+    if (event.request.method !== 'GET') return;
 
     event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-            if (cachedResponse) {
-                return cachedResponse;
+        (async () => {
+            try {
+                const networkResponse = await fetch(event.request);
+
+                const cache = await caches.open(CACHE_NAME);
+                cache.put(event.request, networkResponse.clone());
+                return networkResponse;
+
+            } catch (error) {
+                const cachedResponse = await caches.match(event.request);
+                if (cachedResponse) {
+                    return cachedResponse;
+                }
+
+                if (event.request.mode === 'navigate') {
+                    return await caches.match('/_offline');
+                }
+
+                return new Response(null, { status: 404 });
             }
-            return fetch(event.request);
-        })
+        })()
     );
 });
